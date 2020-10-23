@@ -17,7 +17,7 @@ export default Backbone.View.extend({
 
   attributes: {
     allowfullscreen: 'allowfullscreen',
-    sandbox: 'allow-scripts allow-same-origin',
+    sandbox: 'allow-scripts allow-same-origin allow-presentation',
     'data-frame-el': true
   },
 
