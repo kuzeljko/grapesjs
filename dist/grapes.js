@@ -23823,7 +23823,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
   tagName: 'iframe',
   attributes: {
     allowfullscreen: 'allowfullscreen',
-    sandboc: 'allow-scripts allow-same-origin',
+    sandbox: 'allow-scripts allow-same-origin',
     'data-frame-el': true
   },
   initialize: function initialize(o) {
@@ -39048,7 +39048,7 @@ var defaultConfig = {
   editors: editors,
   plugins: plugins,
   // Will be replaced on build
-  version: '0.16.23',
+  version: '0.16.24',
 
   /**
    * Initialize the editor with passed options
