@@ -23823,6 +23823,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
   tagName: 'iframe',
   attributes: {
     allowfullscreen: 'allowfullscreen',
+    sandboc: 'allow-scripts allow-same-origin',
     'data-frame-el': true
   },
   initialize: function initialize(o) {
@@ -39047,7 +39048,7 @@ var defaultConfig = {
   editors: editors,
   plugins: plugins,
   // Will be replaced on build
-  version: '0.16.22',
+  version: '0.16.23',
 
   /**
    * Initialize the editor with passed options
@@ -45410,28 +45411,28 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
      *                            passed entity
      *@example
      * styleManager.addType('my-custom-prop', {
-        create({ props, change }) {
-          const el = document.createElement('div');
-          el.innerHTML = '<input type="range" class="my-input" min="10" max="50"/>';
-          const inputEl = el.querySelector('.my-input');
-          inputEl.addEventListener('change', event => change({ event })); // change will trigger the emit
-          inputEl.addEventListener('input', event => change({ event, complete: false }));
-          return el;
-        },
-         emit({ props, updateStyle }, { event, complete }) {
-          const { value } = event.target;
-          const valueRes = value + 'px';
-          // Pass a string value for the exact CSS property or an object containing multiple properties
-          // eg. updateStyle({ [props.property]: valueRes, color: 'red' });
-          updateStyle(valueRes, { complete });
-        },
-         update({ value, el }) {
-          el.querySelector('.my-input').value = parseInt(value, 10);
-        },
-         destroy() {
-          // In order to prevent memory leaks, use this method to clean, eventually, created instances, global event listeners, etc.
-        }
-      })
+     *    create({ props, change }) {
+     *      const el = document.createElement('div');
+     *      el.innerHTML = '<input type="range" class="my-input" min="10" max="50"/>';
+     *      const inputEl = el.querySelector('.my-input');
+     *      inputEl.addEventListener('change', event => change({ event })); // change will trigger the emit
+     *      inputEl.addEventListener('input', event => change({ event, complete: false }));
+     *      return el;
+     *    },
+     *    emit({ props, updateStyle }, { event, complete }) {
+     *      const { value } = event.target;
+     *      const valueRes = value + 'px';
+     *      // Pass a string value for the exact CSS property or an object containing multiple properties
+     *      // eg. updateStyle({ [props.property]: valueRes, color: 'red' });
+     *      updateStyle(valueRes, { complete });
+     *    },
+     *    update({ value, el }) {
+     *      el.querySelector('.my-input').value = parseInt(value, 10);
+     *    },
+     *    destroy() {
+     *      // In order to prevent memory leaks, use this method to clean, eventually, created instances, global event listeners, etc.
+     *    }
+     *})
      */
     addType: function addType(id, definition) {
       properties.addType(id, definition);
